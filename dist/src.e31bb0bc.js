@@ -33746,7 +33746,61 @@ var Jokes = /*#__PURE__*/function (_Component) {
 
 var _default = Jokes;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/Header.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"projects/music-master/components/Artist.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Artist = function Artist(_ref) {
+  var artist = _ref.artist;
+  var images = artist.images,
+      name = artist.name,
+      followers = artist.followers,
+      genres = artist.genres;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "row align-items-center mt-5 mb-5 "
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "col"
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: "col"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "card yenum-dark-color",
+    style: {
+      width: 500
+    }
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "card-body"
+  }, /*#__PURE__*/_react.default.createElement("h5", {
+    className: "card-title"
+  }, name), /*#__PURE__*/_react.default.createElement("p", {
+    className: "card-text"
+  }, followers.total, " followers"), /*#__PURE__*/_react.default.createElement("p", {
+    className: "lead"
+  }, genres.join(',')), /*#__PURE__*/_react.default.createElement("img", {
+    src: images[0] && images[0].url,
+    alt: "artist-profile",
+    style: {
+      width: 200,
+      height: 200,
+      borderRadius: 100
+    }
+  }))))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "col"
+  }));
+};
+
+var _default = Artist;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"projects/music-master/components/Tracks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33756,35 +33810,366 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRouterDom = require("react-router-dom");
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Tracks = /*#__PURE__*/function (_Component) {
+  _inherits(Tracks, _Component);
+
+  var _super = _createSuper(Tracks);
+
+  function Tracks() {
+    var _this;
+
+    _classCallCheck(this, Tracks);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      playing: false,
+      audio: null,
+      playingPreviewUrl: null
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "playAudio", function (previewUrl) {
+      return function () {
+        var audio = new Audio(previewUrl);
+
+        if (!_this.state.playing) {
+          audio.play();
+
+          _this.setState({
+            playing: true,
+            audio: audio,
+            playingPreviewUrl: previewUrl
+          });
+        } else {
+          _this.state.audio.pause();
+
+          if (_this.state.playingPreviewUrl === previewUrl) {
+            _this.setState({
+              playing: false
+            });
+          } else {
+            audio.play();
+
+            _this.setState({
+              audio: audio,
+              playingPreviewUrl: previewUrl
+            });
+          }
+        }
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "trackIcon", function (track) {
+      if (!track.preview_url) {
+        return /*#__PURE__*/_react.default.createElement("span", null, "N/A");
+      }
+
+      if (_this.state.playing && _this.state.playingPreviewUrl === track.preview_url) {
+        return "||";
+      } else {
+        return /*#__PURE__*/_react.default.createElement("span", null, "\u25B6");
+      }
+    });
+
+    return _this;
+  }
+
+  _createClass(Tracks, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var tracks = this.props.tracks;
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "mt-2"
+      }, tracks.map(function (track) {
+        var id = track.id,
+            name = track.name,
+            album = track.album,
+            preview_url = track.preview_url;
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: "track",
+          onClick: _this2.playAudio(preview_url),
+          key: id,
+          style: {
+            display: 'inline-block',
+            width: 300,
+            margin: 5
+          }
+        }, /*#__PURE__*/_react.default.createElement("img", {
+          src: album.images[0].url && album.images[0].url,
+          alt: "artist-profile",
+          className: "track-image"
+        }), /*#__PURE__*/_react.default.createElement("p", {
+          className: "track-text"
+        }, name), /*#__PURE__*/_react.default.createElement("p", {
+          className: "track-icon"
+        }, _this2.trackIcon(track)));
+      }));
+    }
+  }]);
+
+  return Tracks;
+}(_react.Component);
+
+var _default = Tracks;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"projects/music-master/components/Search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var Header = function Header(props) {
-  var Component = props.Component;
-  var style = {
-    display: 'inline-block',
-    margin: 10,
-    marginBottom: 30
-  };
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
-    style: style,
-    className: "navbar-brand"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
-  }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
-    style: style,
-    className: "navbar-brand"
-  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/jokes"
-  }, "Jokes"))), /*#__PURE__*/_react.default.createElement(Component, null));
-};
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var _default = Header;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Search = /*#__PURE__*/function (_Component) {
+  _inherits(Search, _Component);
+
+  var _super = _createSuper(Search);
+
+  function Search() {
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      artistQuery: ''
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateArtistQuery", function (event) {
+      _this.setState({
+        artistQuery: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleKeyPress", function (event) {
+      if (event.key === 'Enter') {
+        _this.searchArtist();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "searchArtist", function () {
+      _this.props.searchArtist(_this.state.artistQuery);
+    });
+
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "input-group mx-sm-3 mb-2"
+      }, /*#__PURE__*/_react.default.createElement("input", {
+        type: "text",
+        className: "form-control",
+        onChange: this.updateArtistQuery,
+        onKeyPress: this.handleKeyPress,
+        placeholder: "Search for an Artist"
+      }), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.searchArtist,
+        className: "btn btn-success"
+      }, "Search"));
+    }
+  }]);
+
+  return Search;
+}(_react.Component);
+
+var _default = Search;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"projects/music-master/pages/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Artist = _interopRequireDefault(require("../components/Artist"));
+
+var _Tracks = _interopRequireDefault(require("../components/Tracks"));
+
+var _Search = _interopRequireDefault(require("../components/Search"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var API_ADDRESS = "https://spotify-api-wrapper.appspot.com";
+
+var App = /*#__PURE__*/function (_Component) {
+  _inherits(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      artist: null,
+      tracks: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "searchArtist", function (artistQuery) {
+      fetch("".concat(API_ADDRESS, "/artist/").concat(artistQuery)).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        if (json.artists.total > 0) {
+          var artist = json.artists.items[0];
+
+          _this.setState({
+            artist: artist
+          });
+
+          fetch("".concat(API_ADDRESS, "/artist/").concat(artist.id, "/top-tracks")).then(function (response) {
+            return response.json();
+          }).then(function (json) {
+            console.log(json.tracks);
+
+            _this.setState({
+              tracks: json.tracks
+            });
+          }).catch(function (eror) {
+            return alert(error.message);
+          });
+        }
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.searchArtist('wizkid');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Music Master"), /*#__PURE__*/_react.default.createElement(_Search.default, {
+        searchArtist: this.searchArtist
+      }), this.state.artist != null ? /*#__PURE__*/_react.default.createElement(_Artist.default, {
+        key: this.state.artist.id,
+        artist: this.state.artist
+      }) : null, /*#__PURE__*/_react.default.createElement("h3", null, "Top Ten Tracks"), this.state.tracks.length > 0 ? /*#__PURE__*/_react.default.createElement(_Tracks.default, {
+        key: this.state.tracks.id,
+        tracks: this.state.tracks
+      }) : null);
+    }
+  }]);
+
+  return App;
+}(_react.Component);
+
+var _default = App;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../components/Artist":"projects/music-master/components/Artist.js","../components/Tracks":"projects/music-master/components/Tracks.js","../components/Search":"projects/music-master/components/Search.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -33851,7 +34236,81 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"index.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"projects/music-master/index.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./assets/roboto-condensed.light.ttf":[["roboto-condensed.light.dc1ca484.ttf","projects/music-master/assets/roboto-condensed.light.ttf"],"projects/music-master/assets/roboto-condensed.light.ttf"],"./assets/economica-bold.ttf":[["economica-bold.4b753017.ttf","projects/music-master/assets/economica-bold.ttf"],"projects/music-master/assets/economica-bold.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"projects/music-master/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _App = _interopRequireDefault(require("./pages/App"));
+
+require("./index.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = _App.default; // ReactDOM.render(
+//     <BrowserRouter>
+//         <Switch>
+//             <Route exact={true} path="/" render={() => <App/>}/>
+//         </Switch>
+//     </BrowserRouter>, 
+//     document.getElementById('root')
+// );
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./pages/App":"projects/music-master/pages/App.js","./index.css":"projects/music-master/index.css"}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var Header = function Header(props) {
+  var Component = props.Component;
+  var style = {
+    display: 'inline-block',
+    margin: 10,
+    marginBottom: 30
+  };
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
+    style: style,
+    className: "navbar-brand"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: style,
+    className: "navbar-brand"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/jokes"
+  }, "Jokes")), /*#__PURE__*/_react.default.createElement("h3", {
+    style: style,
+    className: "navbar-brand"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/music-master"
+  }, "Music Master"))), /*#__PURE__*/_react.default.createElement(Component, null));
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"index.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -33868,6 +34327,8 @@ var _reactRouterDom = require("react-router-dom");
 var _App = _interopRequireDefault(require("./pages/App"));
 
 var _Jokes = _interopRequireDefault(require("./pages/Jokes"));
+
+var _musicMaster = _interopRequireDefault(require("./projects/music-master"));
 
 var _Header = _interopRequireDefault(require("./components/Header"));
 
@@ -33890,8 +34351,15 @@ _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRouter
       Component: _Jokes.default
     });
   }
+}), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  path: "/music-master",
+  render: function render() {
+    return /*#__PURE__*/_react.default.createElement(_Header.default, {
+      Component: _musicMaster.default
+    });
+  }
 }))), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./pages/App":"pages/App.js","./pages/Jokes":"pages/Jokes.js","./components/Header":"components/Header.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./pages/App":"pages/App.js","./pages/Jokes":"pages/Jokes.js","./projects/music-master":"projects/music-master/index.js","./components/Header":"components/Header.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -33919,7 +34387,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64181" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58155" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

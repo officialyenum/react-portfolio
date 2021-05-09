@@ -13,6 +13,7 @@ const Header = props => {
             <div>
                 <h3 style={style} className="navbar-brand"><Link to="/">Home</Link></h3>
                 <h3 style={style} className="navbar-brand"><Link to="/jokes">Jokes</Link></h3>
+                <h3 style={style} className="navbar-brand"><Link to="/music-master">Music Master</Link></h3>
             </div>
             <Component/>
         </div>
